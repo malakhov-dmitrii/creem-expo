@@ -54,8 +54,8 @@ bounties/02-expo-react-native/
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/<user>/creem-expo.git
-cd creem-expo/bounties/02-expo-react-native
+git clone https://github.com/malakhov-dmitrii/creem-expo.git
+cd creem-expo
 
 # Install package dependencies
 cd packages/creem-expo && npm install --legacy-peer-deps
