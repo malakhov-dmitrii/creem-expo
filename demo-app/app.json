@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Creem Expo Demo",
+    "slug": "creem-expo-demo",
+    "scheme": "creemexpo",
+    "version": "1.0.0",
+    "platforms": ["ios", "android"],
+    "ios": {
+      "bundleIdentifier": "com.creemexpo.demo",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true,
+          "NSAllowsLocalNetworking": true
+        }
+      }
+    },
+    "android": {
+      "package": "com.creemexpo.demo",
+      "usesCleartextTraffic": true
+    }
+  }
+}

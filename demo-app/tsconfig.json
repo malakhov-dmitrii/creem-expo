@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "creem-expo": ["../packages/creem-expo/src/index"],
+      "creem-expo/*": ["../packages/creem-expo/src/*"]
+    }
+  }
+}
