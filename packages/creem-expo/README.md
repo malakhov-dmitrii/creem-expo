@@ -161,6 +161,45 @@ All 12 Creem webhook events are supported:
 
 **Note:** Creem uses American spelling — `canceled` (one L), not `cancelled`.
 
+## Config Plugin (Automatic Deep Links)
+
+The `creem-expo` Expo config plugin auto-configures iOS and Android deep link schemes. No manual `Info.plist` or `AndroidManifest.xml` editing required.
+
+**Zero-config** (uses `expo.scheme` from your app config):
+
+```json
+{
+  "expo": {
+    "scheme": "myapp",
+    "plugins": ["creem-expo"]
+  }
+}
+```
+
+**Explicit scheme override:**
+
+```json
+{
+  "expo": {
+    "plugins": [["creem-expo", { "scheme": "myapp" }]]
+  }
+}
+```
+
+Then regenerate native files:
+
+```bash
+npx expo prebuild
+```
+
+The plugin:
+- Adds your scheme to iOS `CFBundleURLTypes` in `Info.plist`
+- Adds your scheme to Android `intent-filter` in `AndroidManifest.xml`
+- Sets `expo.extra.creem.scheme` for runtime access via `expo-constants`
+- Is idempotent (safe to run multiple times)
+
+Scheme resolution order: plugin props `scheme` > `expo.scheme` > error.
+
 ## Deep Links
 
 Configure your Expo app's deep link scheme in `app.json`:

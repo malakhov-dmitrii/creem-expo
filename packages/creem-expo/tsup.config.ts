@@ -17,4 +17,12 @@ export default defineConfig([
     platform: 'node',
     external: ['creem', 'express'],
   },
+  {
+    entry: { index: 'src/plugin/index.ts' },
+    outDir: 'dist/plugin',
+    format: ['cjs'],
+    dts: true,
+    platform: 'node',
+    external: ['@expo/config-plugins'],
+  },
 ]);

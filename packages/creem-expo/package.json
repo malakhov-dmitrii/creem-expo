@@ -1,32 +1,36 @@
 {
   "name": "creem-expo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Creem payments SDK for Expo/React Native apps",
   "license": "MIT",
   "author": "malakhov",
-  "keywords": ["creem", "expo", "react-native", "payments", "subscriptions", "checkout", "MoR"],
+  "keywords": ["creem", "expo", "react-native", "payments", "subscriptions", "checkout", "MoR", "config-plugin"],
   "repository": {
     "type": "git",
     "url": "https://github.com/malakhov-dmitrii/creem-expo"
   },
-  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/client/index.d.ts",
-      "import": "./dist/client/index.js",
-      "require": "./dist/client/index.cjs"
+      "import": "./dist/client/index.mjs",
+      "require": "./dist/client/index.js"
     },
     "./server": {
       "types": "./dist/server/index.d.ts",
-      "import": "./dist/server/index.js",
-      "require": "./dist/server/index.cjs"
+      "import": "./dist/server/index.mjs",
+      "require": "./dist/server/index.js"
+    },
+    "./plugin": {
+      "types": "./dist/plugin/index.d.ts",
+      "require": "./dist/plugin/index.js"
     }
   },
-  "main": "./dist/client/index.cjs",
-  "module": "./dist/client/index.js",
+  "main": "./dist/client/index.js",
+  "module": "./dist/client/index.mjs",
   "types": "./dist/client/index.d.ts",
   "files": [
     "dist",
+    "app.plugin.js",
     "README.md"
   ],
   "scripts": {
@@ -38,6 +42,7 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
+    "@expo/config-plugins": ">=7.0.0",
     "expo-linking": ">=6.0.0",
     "expo-web-browser": ">=13.0.0",
     "react": ">=18.0.0",
@@ -45,6 +50,9 @@
     "react-native-webview": ">=13.0.0"
   },
   "peerDependenciesMeta": {
+    "@expo/config-plugins": {
+      "optional": true
+    },
     "react-native-webview": {
       "optional": true
     },
@@ -53,6 +61,8 @@
     }
   },
   "devDependencies": {
+    "@expo/config-plugins": "^10.0.0",
+    "@expo/config-types": "^52.0.0",
     "@testing-library/react-native": "^12.0.0",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.0",

@@ -5,6 +5,7 @@
     "scheme": "creemexpo",
     "version": "1.0.0",
     "platforms": ["ios", "android"],
+    "plugins": ["creem-expo"],
     "ios": {
       "bundleIdentifier": "com.creemexpo.demo",
       "infoPlist": {
