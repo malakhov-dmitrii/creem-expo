@@ -1,5 +1,7 @@
 # creem-expo
 
+[![npm version](https://img.shields.io/npm/v/creem-expo.svg)](https://www.npmjs.com/package/creem-expo)
+
 Creem payments SDK for Expo / React Native apps. Provides React components, hooks, and Express server helpers for integrating [Creem](https://creem.io) (Merchant of Record) into mobile apps.
 
 ## Installation
