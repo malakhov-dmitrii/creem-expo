@@ -7,7 +7,7 @@ export default defineConfig([
     format: ['cjs', 'esm'],
     dts: true,
     platform: 'neutral',
-    external: ['react', 'react-native', 'react-native-webview', 'expo-web-browser', 'expo-linking'],
+    external: ['react', 'react-native', 'react-native-webview', 'expo-web-browser', 'expo-linking', '@react-native-async-storage/async-storage'],
   },
   {
     entry: { index: 'src/server/index.ts' },

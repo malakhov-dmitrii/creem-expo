@@ -1,6 +1,6 @@
 {
   "name": "creem-expo",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Creem payments SDK for Expo/React Native apps",
   "license": "MIT",
   "author": "malakhov",
@@ -47,7 +47,8 @@
     "expo-web-browser": ">=13.0.0",
     "react": ">=18.0.0",
     "react-native": ">=0.72.0",
-    "react-native-webview": ">=13.0.0"
+    "react-native-webview": ">=13.0.0",
+    "@react-native-async-storage/async-storage": ">=1.19.0"
   },
   "peerDependenciesMeta": {
     "@expo/config-plugins": {
@@ -57,6 +58,9 @@
       "optional": true
     },
     "expo-web-browser": {
+      "optional": true
+    },
+    "@react-native-async-storage/async-storage": {
       "optional": true
     }
   },

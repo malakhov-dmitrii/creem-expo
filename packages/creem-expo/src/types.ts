@@ -93,5 +93,108 @@ export interface CreemRouterConfig {
   onSubscriptionUpdate?: WebhookHandler;
   onRefundCreated?: WebhookHandler;
   onDisputeCreated?: WebhookHandler;
-  authorize?: (req: any, subscriptionId: string) => Promise<boolean> | boolean;
+  authorize?: (req: any, entityId: string) => Promise<boolean> | boolean;
+}
+
+// ── License types ──────────────────────────────────────────────────────
+
+export type LicenseStatus = 'inactive' | 'active' | 'expired' | 'disabled';
+
+export interface LicenseInstance {
+  id: string;
+  name: string;
+  status: 'active' | 'deactivated';
+  createdAt: string;
+}
+
+export interface LicenseData {
+  id: string;
+  status: LicenseStatus;
+  key: string;
+  activation: number;
+  activationLimit?: number | null;
+  expiresAt?: string | null;
+  createdAt: string;
+  instance?: LicenseInstance | null;
+}
+
+export interface ActivateLicenseRequest {
+  key: string;
+  instanceName: string;
+}
+
+export interface ValidateLicenseRequest {
+  key: string;
+  instanceId: string;
+}
+
+export interface DeactivateLicenseRequest {
+  key: string;
+  instanceId: string;
+}
+
+// ── Product types ──────────────────────────────────────────────────────
+
+export type ProductBillingType = 'recurring' | 'onetime';
+export type ProductBillingPeriod =
+  | 'every-month' | 'every-three-months' | 'every-six-months' | 'every-year' | 'once';
+
+export interface ProductData {
+  id: string;
+  name: string;
+  description: string;
+  imageUrl?: string;
+  price: number;
+  currency: string;
+  billingType: ProductBillingType;
+  billingPeriod: ProductBillingPeriod;
+  status: 'active' | 'archived';
+  productUrl?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface PaginationData {
+  totalRecords: number;
+  totalPages: number;
+  currentPage: number;
+  nextPage: number | null;
+  prevPage: number | null;
+}
+
+export interface ProductListData {
+  items: ProductData[];
+  pagination: PaginationData;
+}
+
+// ── Customer types ─────────────────────────────────────────────────────
+
+export interface CustomerData {
+  id: string;
+  email: string;
+  name?: string | null;
+  country: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CustomerPortalData {
+  portalUrl: string;
+}
+
+// ── Entitlement types (unique to creem-expo) ───────────────────────────
+
+export interface EntitlementData {
+  subscriptionId: string;
+  status: SubscriptionStatus;
+  productId: string;
+  expiresAt?: string | null;
+  cachedAt: number;
+}
+
+export interface EntitlementOptions {
+  /** TTL in milliseconds. Default: 300000 (5 minutes) */
+  ttl?: number;
+  /** AsyncStorage key prefix. Default: '@creem_entitlement_' */
+  storageKeyPrefix?: string;
 }

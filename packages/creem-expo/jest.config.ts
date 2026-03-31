@@ -12,6 +12,7 @@ const config: Config = {
     '^react-native$': '<rootDir>/tests/__mocks__/react-native.ts',
     '^expo-web-browser$': '<rootDir>/tests/__mocks__/expo-web-browser.ts',
     '^expo-linking$': '<rootDir>/tests/__mocks__/expo-linking.ts',
+    '^@react-native-async-storage/async-storage$': '<rootDir>/tests/__mocks__/async-storage.ts',
   },
 };
 export default config;
